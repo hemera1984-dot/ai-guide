@@ -1,0 +1,543 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8">
+<title>정책자금 핵심정리</title>
+<style>
+@page{ size:90mm 160mm; margin:8mm 6mm 9mm; }
+*{ box-sizing:border-box; }
+:root{
+  --ink:#101826; --sub:#5A6679; --line:#DCE3EE; --wash:#F5F8FC;
+  --a:#0B4DD6; --r:#C41230; --g:#0A6B4B; --gold:#8A6A18;
+}
+html,body{ margin:0; padding:0; }
+body{ font-family:"Noto Sans KR",sans-serif; color:var(--ink);
+  font-size:10pt; line-height:1.78; letter-spacing:-0.005em;
+  -webkit-font-smoothing:antialiased; }
+p{ margin:0 0 3.2mm; }
+b{ font-weight:700; }
+small{ font-size:8.6pt; color:var(--sub); line-height:1.6; }
+.sec{ page-break-before:always; }
+.box,.kv>div,.tel>div,li,.big{ break-inside:avoid; page-break-inside:avoid; }
+h3{ break-after:avoid; page-break-after:avoid; }
+.sh{ break-after:avoid; page-break-after:avoid; }
+p{ orphans:2; widows:2; }
+.sec:first-of-type{ page-break-before:auto; }
+
+/* 표지 */
+.cover{ height:143mm; display:flex; flex-direction:column; justify-content:center; text-align:center; }
+.cover .eyebrow{ font-size:8.4pt; letter-spacing:.22em; color:var(--a); font-weight:700; margin-bottom:5mm; }
+.cover h1{ font-size:27pt; line-height:1.18; font-weight:800; margin:0 0 5mm; letter-spacing:-.03em; }
+.cover .bar{ width:16mm; height:1.6mm; background:var(--a); margin:0 auto 5mm; border-radius:1mm; }
+.cover .lead{ font-size:10.5pt; color:var(--sub); line-height:1.85; }
+.cover .date{ margin-top:9mm; font-size:8.6pt; color:var(--sub); }
+
+/* 섹션 헤더 */
+.sh{ margin:0 0 5mm; padding-bottom:3mm; border-bottom:2.2px solid var(--ink); }
+.sh .n{ font-size:8pt; font-weight:800; color:var(--a); letter-spacing:.18em; }
+.sh h2{ font-size:16pt; font-weight:800; margin:1.5mm 0 0; letter-spacing:-.025em; line-height:1.3; }
+.sh .d{ font-size:9pt; color:var(--sub); margin-top:2mm; line-height:1.6; }
+
+h3{ font-size:11.5pt; font-weight:800; margin:6mm 0 2.5mm; letter-spacing:-.02em; }
+h3:first-of-type{ margin-top:0; }
+
+/* 키-값 행 (표 대신) */
+.kv{ border-top:1px solid var(--line); margin:0 0 4mm; }
+.kv div{ display:flex; gap:3mm; padding:2.4mm 0; border-bottom:1px solid var(--line); align-items:baseline; }
+.kv b{ flex:0 0 27mm; font-size:9.4pt; }
+.kv span{ flex:1; font-size:9.6pt; line-height:1.6; }
+.kv span small{ display:block; }
+
+/* 강조 박스 */
+.box{ background:var(--wash); border-left:2.6mm solid var(--a); border-radius:0 2mm 2mm 0;
+  padding:3.5mm 4mm 1mm; margin:0 0 4mm; }
+.box.r{ border-left-color:var(--r); background:#FDF4F5; }
+.box.g{ border-left-color:var(--g); background:#F1F9F5; }
+.box.y{ border-left-color:var(--gold); background:#FBF7EC; }
+.box .t{ font-size:8.4pt; font-weight:800; letter-spacing:.06em; color:var(--a); margin-bottom:2mm; }
+.box.r .t{ color:var(--r); } .box.g .t{ color:var(--g); } .box.y .t{ color:var(--gold); }
+.box p:last-child{ margin-bottom:2.5mm; }
+
+/* 리스트 */
+ul{ margin:0 0 4mm; padding-left:4.6mm; }
+li{ margin-bottom:1.8mm; line-height:1.7; }
+ul.chk{ list-style:none; padding-left:0; }
+ul.chk li{ position:relative; padding-left:5.2mm; }
+ul.chk li::before{ content:"□"; position:absolute; left:0; color:var(--a); font-weight:700; }
+ul.no{ list-style:none; padding-left:0; }
+ul.no li{ position:relative; padding-left:5.2mm; }
+ul.no li::before{ content:"✕"; position:absolute; left:0; color:var(--r); font-weight:700; font-size:9pt; }
+
+/* 큰 숫자 */
+.big{ text-align:center; padding:3mm 0 1mm; }
+.big .v{ font-size:21pt; font-weight:800; color:var(--a); letter-spacing:-.03em; line-height:1.1; }
+.big .l{ font-size:8.8pt; color:var(--sub); margin-top:1mm; }
+
+/* 전화 */
+.tel{ border-top:1px solid var(--line); }
+.tel div{ display:flex; justify-content:space-between; align-items:baseline;
+  padding:2.6mm 0; border-bottom:1px solid var(--line); }
+.tel .o{ font-size:9.6pt; font-weight:600; }
+.tel .o em{ display:block; font-style:normal; font-size:8.2pt; color:var(--sub); font-weight:400; }
+.tel .n{ font-size:11pt; font-weight:800; color:var(--a); letter-spacing:-.01em; white-space:nowrap; }
+
+.src{ font-size:8pt; color:var(--sub); line-height:1.55; margin:2mm 0 4mm; }
+.flag{ display:inline-block; background:var(--a); color:#fff; font-size:7.6pt; font-weight:700;
+  padding:0.4mm 1.6mm; border-radius:1mm; vertical-align:2%; margin-right:1mm; }
+footer{ page-break-before:always; text-align:center; padding-top:30mm; }
+footer .fb{ font-size:13pt; font-weight:800; }
+footer .fs{ font-size:8.6pt; color:var(--sub); margin-top:3mm; line-height:1.7; }
+</style></head><body>
+
+<!-- 표지 -->
+<section class="cover">
+  <div class="eyebrow">2 0 2 6</div>
+  <h1>정책자금<br>핵심정리</h1>
+  <div class="bar"></div>
+  <p class="lead">사업자와 개인이<br>실제로 받을 수 있는 것만<br>추려 담았습니다</p>
+  <div class="date">2026년 9월 20일 기준</div>
+</section>
+
+<!-- 00 -->
+<section class="sec">
+  <div class="sh"><div class="n">시작하기 전에</div><h2>세 가지만<br>기억하십시오</h2></div>
+
+  <div class="box g">
+    <div class="t">하나</div>
+    <p><b>신청은 무료이고, 직접 하실 수 있습니다.</b> 정책자금은 기관 창구와 온라인에서 본인이 접수합니다. 대행 수수료를 내야 받을 수 있는 자금은 없습니다.</p>
+  </div>
+
+  <div class="box y">
+    <div class="t">둘</div>
+    <p><b>예산이 떨어지면 연중 아무 때나 끝납니다.</b> 상당수가 선착순이라 &ldquo;나중에&rdquo;가 통하지 않습니다. 금리도 분기마다 새로 고시됩니다.</p>
+  </div>
+
+  <div class="box r">
+    <div class="t">셋</div>
+    <p><b>이 책자만 보고 결정하지 마십시오.</b> 여기 적힌 숫자는 기준일 현재의 공고문에서 옮긴 것입니다. 신청 전에 아래 번호로 확인하십시오.</p>
+    <p style="margin-bottom:3mm"><b style="font-size:11pt">소상공인 1533-0100</b><br><b style="font-size:11pt">중소기업 1357</b> &nbsp;<small>둘 다 무료</small></p>
+  </div>
+</section>
+
+<!-- 01 -->
+<section class="sec">
+  <div class="sh"><div class="n">0 1</div><h2>나는 어디에<br>속하는가</h2>
+  <div class="d">개인사업자냐 법인이냐로 갈리지 않습니다. 직원 수가 가릅니다.</div></div>
+
+  <div class="kv">
+    <div><b>소상공인</b><span>광업·제조업·건설업·운수업 <b>10명 미만</b><br>그 밖의 업종 <b>5명 미만</b><br><small>→ 소상공인시장진흥공단 (2장)</small></span></div>
+    <div><b>중소기업</b><span>위 기준을 넘는 기업<br><small>→ 중소벤처기업진흥공단 (3장)</small></span></div>
+    <div><b>사업자 없음</b><span>근로자·구직자·무직<br><small>→ 개인 대상 제도 (8장)</small></span></div>
+  </div>
+  <p class="src"><span class="flag">원문</span>「소상공인기본법 시행령」 기준. 중진공 2026 융자계획 공고 제2026-464호 p11.</p>
+
+  <div class="box">
+    <div class="t">담보가 없다면</div>
+    <p>위 어느 쪽이든 <b>보증서</b>로 갑니다. 보증기관이 은행에 보증을 서주는 구조입니다. 4장을 보십시오.</p>
+  </div>
+
+  <div class="box y">
+    <div class="t">함께 챙길 것</div>
+    <p>융자 말고 <b>갚지 않는 돈</b>도 있습니다. 직원을 뽑으면 고용 지원금(6장), 지금 열려 있는 지원금(7장)을 같이 보십시오.</p>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="sec">
+  <div class="sh"><div class="n">0 2</div><h2>소상공인 자금</h2>
+  <div class="d">직원 수가 1장 기준 미만이면 여기입니다. 대부분의 개인사업자가 해당됩니다.</div></div>
+
+  <div class="box r">
+    <div class="t">가장 급한 일정</div>
+    <p><b>4분기 대리대출 접수<br>2026년 10월 6일(화) 오전 10시</b></p>
+    <p>예산 소진 시까지 <b>선착순</b>입니다. 일반경영안정·청년고용연계·장애인기업·긴급경영안정(경영애로)이 여기 해당합니다.</p>
+    <p>접수일에 서류가 갖춰져 있어야 합니다. <b>지원대상 확인서</b>는 미리 받아두실 수 있고, 유효기간은 <b>12월 23일</b>까지입니다.</p>
+  </div>
+
+  <h3>얼마까지 되나</h3>
+  <div class="kv">
+    <div><b>운전자금</b><span>기업당 <b>5억원</b> 이내<br><small>기존 대출잔액과 합산합니다</small></span></div>
+    <div><b>시설 포함</b><span><b>10억원</b> 이내</span></div>
+    <div><b>긴급경영안정</b><span>위 한도와 <b>별도</b>로 운용</span></div>
+  </div>
+
+  <h3>금리</h3>
+  <div class="big"><div class="v">연 3.85%</div><div class="l">3분기 기준금리 (~10월 9일)</div></div>
+  <p>여기에 자금별 가산이 붙습니다. 일반경영안정자금은 <b>연 4.45%</b>, 청년고용연계와 경영애로는 <b>연 3.85%</b>입니다.</p>
+  <p class="src"><span class="flag">원문</span>인터넷에 3분기를 3.44%로 적은 자료가 많은데 그건 2분기 수치입니다. 4분기 금리는 10월 초에 새로 고시됩니다.</p>
+
+  <div class="box g">
+    <div class="t">최대 0.8%p 깎을 수 있습니다</div>
+    <div class="kv" style="margin-bottom:2mm">
+      <div><b>△0.3%p</b><span>성실상환 <small>직접대출을 3년 내 연체 없이 상환 중이거나 완제</small></span></div>
+      <div><b>△0.2%p</b><span>비수도권 <small>수도권 내 인구감소지역 포함</small></span></div>
+      <div><b>△0.1%p</b><span>노란우산공제, 자영업자 고용보험,<br>전통시장 화재공제, 풍수해보험</span></div>
+      <div><b>△0.1%p</b><span>여성기업·장애인기업</span></div>
+      <div><b>△0.1%p</b><span>제로페이·디지털온누리 가맹, 컨설팅 수료</span></div>
+    </div>
+    <p><b>가입은 신청 전에 끝내야 합니다.</b> 같은 유형끼리는 중복되지 않고, 고정금리 상품은 제외입니다.</p>
+  </div>
+
+  <h3>어디서 신청하나</h3>
+  <div class="kv">
+    <div><b>온라인</b><span><b>ols.semas.or.kr</b></span></div>
+    <div><b>방문</b><span>소상공인지원센터 <b>전국 80곳</b></span></div>
+    <div><b>전화 문의</b><span><b>1533-0100</b> 내선 1번</span></div>
+  </div>
+  <p class="src"><span class="flag">원문</span>소진공 2026년 정책자금 공고(제2026-478호, 4차 변경) p2~5.</p>
+</section>
+
+<!-- 03 -->
+<section class="sec">
+  <div class="sh"><div class="n">0 3</div><h2>중소기업 자금</h2>
+  <div class="d">1장 기준을 넘는 기업입니다. 시설투자 계획이 있으면 한도가 크게 늘어납니다.</div></div>
+
+  <div class="kv">
+    <div><b>창업기반지원</b><span>업력 7년 미만<br>시설 60억 / 운전 5억</span></div>
+    <div><b>청년전용창업</b><span>대표 만 39세 이하 · 업력 3년 미만<br>1억 (제조·중점분야 2억)<br><b style="color:#0B4DD6">금리 2.5% 고정</b></span></div>
+    <div><b>혁신성장지원</b><span>업력 7년 이상<br>시설 60억 / 운전 5억</span></div>
+    <div><b>긴급경영안정</b><span>재해 피해 기업<br>10억 · <b>금리 1.9% 고정</b></span></div>
+  </div>
+  <p class="src"><span class="flag">원문</span>중진공 공고 제2026-464호(2026.7.27 변경). 기업당 총 60억원, 지방 소재는 70억원까지.</p>
+
+  <div class="box r">
+    <div class="t">운전자금만 받기는 어렵습니다</div>
+    <p>중진공은 운전자금을 <b>시설자금에 딸린 초기 가동비</b>로 봅니다. 혁신성장·스마트화·Net-Zero 자금의 운전자금은 <b>시설자금을 받은 기업이, 시설자금의 50% 이내</b>로만 신청할 수 있습니다.</p>
+    <p>시설투자 계획이 없으시다면 <b>지자체 이차보전</b>(5장)을 보십시오.</p>
+  </div>
+
+  <h3>신청 전에 확인할 탈락 사유</h3>
+  <ul class="chk">
+    <li>세금을 체납 중이다</li>
+    <li>휴업이나 폐업 상태다</li>
+    <li>연체·대위변제·부도 등 신용정보가 등록돼 있다</li>
+    <li><b>제3자가 부당 개입</b>한 신청 이력이 최근 3년 내 있다</li>
+    <li>업력 7년 이상인데 <b>부채비율</b>이 업종 기준을 넘는다</li>
+    <li>최근 5년간 정책자금을 <b>3회 이상</b> 받았다</li>
+    <li>운전자금 누적이 <b>25억원</b>을 넘는다</li>
+    <li>금융·보험업, 부동산업, 법무·세무, 보건업 등 <b>제외업종</b>이다</li>
+  </ul>
+  <p class="src"><span class="flag">원문</span>공고문 p11 유의사항. 하나라도 걸리면 접수 단계에서 돌아옵니다.</p>
+
+  <div class="box">
+    <div class="t">문의</div>
+    <p>정책자금 전담콜센터 <b style="font-size:11.5pt">1811-3655</b><br>누리집 kosmes.or.kr</p>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="sec">
+  <div class="sh"><div class="n">0 4</div><h2>담보가<br>없을 때</h2>
+  <div class="d">보증기관이 은행에 보증을 서주면 담보 없이 대출이 나옵니다. 기관이 셋인데 역할이 다릅니다.</div></div>
+
+  <div class="kv">
+    <div><b>지역신용보증재단</b><span><b>소상공인</b>의 1차 창구<br><small>중앙회 1588-7365 → 관할 재단 연결</small></span></div>
+    <div><b>기술보증기금</b><span><b>기술·벤처</b> 기업. 기술평가가 전제<br><small>1544-1120</small></span></div>
+    <div><b>신용보증기금</b><span>일반 <b>중소기업</b>·수출기업<br><small>1588-6565</small></span></div>
+  </div>
+
+  <div class="box r">
+    <div class="t">가장 많이 오해하는 것</div>
+    <p><b>신보 30억과 기보 30억을 합쳐 60억을 만들 수 없습니다.</b> 일반보증한도 30억원은 두 기관을 <b>합산</b>해 적용합니다.</p>
+    <p>지역신보 한도 <b>8억원</b>도 운전·시설 합산이고, 그마저 <b>재단·신보·기보를 모두 합친 총액</b>입니다. 재단 자체 규정으로 실제는 더 낮게 걸립니다.</p>
+  </div>
+
+  <div class="box y">
+    <div class="t">보증서를 받아도 끝이 아닙니다</div>
+    <p>실행 여부와 금리는 <b>대출은행이 정합니다.</b> 보증료와 대출이자는 별개 비용입니다.</p>
+    <p>그리고 <b>보증서 발급일로부터 60일 안에</b> 대출이 실행되어야 보증관계가 성립합니다. 받아두고 미루면 무효가 됩니다.</p>
+  </div>
+
+  <h3>연대보증은 없어졌지만</h3>
+  <p>대표 개인에게 남는 책임이 셋 있습니다. 보증을 크게 쓰실 계획이면 미리 아셔야 합니다.</p>
+  <ul>
+    <li><b>폐업하면 전액을 한 번에 갚아야 합니다.</b> 보증은 사업자등록을 가진 사업자에게 나가는 것이라, 등록을 말소하면 일시상환 사유가 됩니다.</li>
+    <li>자금을 <b>용도 외로 쓰거나</b> 자구노력 없이 휴·폐업하면 손해배상 책임을 묻고 <b>대표 재산을 가압류</b>할 수 있습니다.</li>
+    <li><b>대위변제가 발생하면</b> 대표자와 실제경영자, 과점주주인 이사까지 신보·기보·지역신보·중앙회 <b>네 곳 전부에서</b> 보증이 막힙니다. 다른 법인을 세워도 마찬가지입니다.</li>
+  </ul>
+
+  <div class="box r">
+    <div class="t">대표에게 문제가 생기면</div>
+    <p>대표가 사망하거나 중대질병으로 경영이 불가능해지면 <b>조업 중단 → 가압류 → 대위변제 → 유족에게 구상채무</b>로 이어집니다. 연대보증이 없어도 이 경로는 막히지 않습니다.</p>
+    <p>보증을 많이 쓰고 계시다면 <b>대표 유고 시 무엇으로 갚을지</b> 한 번은 정리해 두십시오.</p>
+  </div>
+
+  <div class="box g">
+    <div class="t">보험 관련업을 하신다면</div>
+    <p>중진공·소진공 정책자금은 금융 및 보험업(64~66)을 통째로 제외합니다. 다만 <b>지역신용보증재단은 보험 대리·중개업(66202)과 손해사정업(66201)을 명시적으로 예외</b>로 둡니다.</p>
+    <p>단, <b>64와 65는 예외 없이 막히고</b>, 사업자등록상 업종코드가 실제로 66202여야 합니다.</p>
+    <p class="src" style="margin-bottom:2mm">6개 재단 규정을 대조한 결과 문구가 같습니다. 중앙회 표준안이라 전국 공통입니다.</p>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="sec">
+  <div class="sh"><div class="n">0 5</div><h2>지자체 자금</h2>
+  <div class="d">가장 자주 놓치는 갈래입니다. 중앙정부 자금과 별개로 시·도와 시·군·구가 따로 운영합니다.</div></div>
+
+  <h3>이차보전이 무엇인가</h3>
+  <p>은행에서 정상 금리로 대출을 받으면, 그중 일정 %p를 지자체가 은행에 대신 내줍니다. 기업은 차감된 금리만 부담합니다.</p>
+  <div class="box">
+    <p style="margin-bottom:2.5mm"><b>기업부담금리 = 은행 금리 − 이차보전율</b></p>
+    <p style="margin-bottom:3mm"><small>예: 은행 5.26%에 이차보전 1.8%p가 적용되면 실제 부담은 3.46%</small></p>
+  </div>
+  <p><b>광역과 기초는 별개이고 중복되는 경우가 많습니다.</b> 시·도 자금을 받았어도 시·군·구 자금을 따로 신청할 수 있는지 확인해 보십시오.</p>
+
+  <div class="box y">
+    <div class="t">시기가 중요합니다</div>
+    <p>대부분 <b>1월 초에 공고가 나고</b> 조기 마감됩니다. 12월에는 신청할 곳이 거의 없습니다. 연말에는 서류를 준비하고 1월 첫 주를 노리는 편이 낫습니다.</p>
+  </div>
+
+  <h3>내 지역 자금 찾는 법</h3>
+  <p>기업마당 <b>bizinfo.go.kr</b>에 모든 중앙부처·지자체 공고가 모입니다. 지역 필터와 &lsquo;마감 제외&rsquo; 옵션을 쓰십시오.</p>
+  <p>검색창에는 이렇게 넣으시면 됩니다.</p>
+  <div class="box">
+    <p style="margin-bottom:2.5mm"><small>2026 ○○시 소상공인 육성자금 공고<br>○○도 중소기업육성자금 융자지원계획<br>○○시 이차보전 2026<br>○○신용보증재단 특례보증 2026</small></p>
+  </div>
+  <p><b>첨부된 한글 파일을 꼭 열어보십시오.</b> 실제 금액과 요건은 본문이 아니라 별표에 들어 있습니다. 그리고 &ldquo;8차 변경 공고&rdquo;처럼 <b>가장 최신 차수</b>가 유효한 문서입니다.</p>
+
+  <div class="box g">
+    <div class="t">접수처가 지역마다 다릅니다</div>
+    <p>지역신용보증재단에서 받는 곳도 있고, 별도 진흥원이나 자체 온라인 시스템에서 받는 곳도 있습니다. 공고문에 적힌 접수처를 그대로 따르십시오.</p>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="sec">
+  <div class="sh"><div class="n">0 6</div><h2>부동산 임대업</h2>
+  <div class="d">임대업은 일반 사업과 세법상 취급이 전혀 다릅니다. 흔히 듣는 법인 전환 논리가 통하지 않습니다.</div></div>
+
+  <div class="box r">
+    <div class="t">정책자금은 대상이 아닙니다</div>
+    <p>부동산업(표준산업분류 68)은 중진공·소진공 모두 <b>융자제외 업종</b>입니다. 예외가 하나 있는데 아래 &lsquo;착한 임대인&rsquo;입니다.</p>
+  </div>
+
+  <div class="box r">
+    <div class="t">법인으로 바꿔도 세율이 안 낮아집니다</div>
+    <p>임대법인은 대부분 <b>성실신고확인대상 소규모법인</b>에 해당합니다. 부동산 임대·이자·배당이 매출의 50% 이상이고, 상시근로자가 5인 미만이며, 지배주주 지분이 50%를 넘는 경우입니다.</p>
+    <p>이 법인은 <b>과세표준 200억원 이하 구간 전체에 20%</b>가 적용됩니다. 일반 법인처럼 2억원까지 10%를 적용받지 못합니다. 과세표준 2억원이면 일반 법인은 2,000만원, 임대법인은 <b>4,000만원</b>입니다.</p>
+    <p class="src" style="margin-bottom:2mm"><span class="flag">원문</span>법인세법 제55조 제1항 제2호.</p>
+  </div>
+
+  <div class="box r">
+    <div class="t">조특법 혜택에서도 빠집니다</div>
+    <p>2025년 2월 28일 이후 개시하는 사업연도부터 부동산임대업과 성실신고확인대상 소규모법인은 <b>조세특례제한법상 중소기업에서 제외</b>됩니다.</p>
+    <p>중소기업특별세액감면, 통합투자세액공제, 통합고용세액공제가 통째로 빠지고 접대비·업무용승용차 한도도 줄어듭니다.</p>
+  </div>
+
+  <div class="box g">
+    <div class="t">그럼에도 법인이 필요한 경우</div>
+    <p>세율이 아니라 <b>승계와 소득 분산</b>에서 답을 찾아야 합니다. 가업승계 증여세 과세특례는 <b>주식을 발행한 법인만</b> 적용되어 개인사업자는 대상이 아닙니다. 다만 부동산 임대업은 가업상속·가업승계의 대상 업종에서도 빠집니다.</p>
+    <p>소득 규모가 크지 않거나 승계 계획이 없다면, 법인 전환은 설립·기장·성실신고 비용만 늘립니다.</p>
+  </div>
+
+  <h3>착한임대인 세액공제</h3>
+  <p>임차인의 임대료를 깎아주면 <b>인하액의 70%</b>를 소득세·법인세에서 공제받습니다. 적용기한은 2028년까지입니다.</p>
+  <div class="box y">
+    <div class="t">요건을 먼저 확인하십시오</div>
+    <p>임차인이 아래를 <b>모두</b> 충족해야 합니다.</p>
+    <p style="margin-bottom:2.5mm"><b>①</b> 사업자등록을 한 소상공인일 것<br><b>②</b> <b>2021년 7월 1일 이전부터</b> 계속 임차 중일 것<br><b>③</b> 임대인과 특수관계가 아닐 것</p>
+    <p><b>두 번째가 결정적입니다.</b> 2021년 7월 1일 이후에 새로 들어온 임차인은 적용 기한이 늘었어도 대상이 아닙니다.</p>
+  </div>
+
+  <div class="box">
+    <div class="t">소상공인 자금의 예외 조항</div>
+    <p>착한 임대인 요건을 갖추면 소진공 일반경영안정자금을 신청할 수 있는 길이 열립니다. 다만 그쪽 인정 기준은 세액공제와 별개이니 <b>1533-0100</b>으로 확인하십시오.</p>
+  </div>
+</section>
+
+<!-- 07 -->
+<section class="sec">
+  <div class="sh"><div class="n">0 7</div><h2>직원을<br>뽑으신다면</h2>
+  <div class="d">융자가 아니라 갚지 않는 돈입니다. 심사가 오래 걸리지 않고 탈락 위험도 낮습니다.</div></div>
+
+  <h3>청년일자리도약장려금</h3>
+  <div class="big"><div class="v">720만원</div><div class="l">청년 1명 채용 시 2년간</div></div>
+
+  <div class="box g">
+    <div class="t">비수도권이 훨씬 유리합니다</div>
+    <p>수도권은 청년이 &lsquo;4개월 이상 실업&rsquo;, &lsquo;고졸 이하&rsquo; 같은 <b>취업애로청년 요건</b> 열 가지 중 하나를 충족해야 합니다.</p>
+    <p>비수도권은 그 요건이 <b>아예 없습니다.</b> 만 15~34세 청년이면 누구를 뽑아도 됩니다. 대학 마지막 학기 졸업예정자도 포함됩니다.</p>
+    <p><small>인천 강화·옹진, 경기 가평·연천은 수도권이지만 인구감소지역이라 비수도권으로 봅니다.</small></p>
+  </div>
+
+  <div class="box y">
+    <div class="t">직원이 5명이 안 돼도 됩니다</div>
+    <p>원칙은 5인 이상이지만 아래에 해당하면 <b>5인 미만도 가능</b>합니다.</p>
+    <p style="margin-bottom:3mm"><small>지식서비스산업 · 문화콘텐츠산업 · 신재생에너지산업 · 미래유망기업 · 지역주력산업 · 청년창업기업(대표 만 15~39세, 업력 7년 미만) · 고용위기지역 소재 · 특별고용지원업종</small></p>
+  </div>
+
+  <div class="box r">
+    <div class="t">직원분께 꼭 알려주십시오</div>
+    <p>청년장기근속인센티브는 <b>청년 본인이 고용24에서 직접 신청</b>해야 합니다. 회차별 기한이 있고, <b>몰라서 못 낸 경우에도 자격이 소멸</b>합니다.</p>
+    <p>6개월 이상 근무하고 12개월을 못 채우고 퇴사하면 1회차만 지급되고 끝납니다.</p>
+  </div>
+
+  <h3>제외되는 업종</h3>
+  <p><small>주점업(일반·무도유흥·기타), 사행시설, 무도장, 청소년유해업소, 풍속영업, 국가·지자체·공공기관, 사립학교, 상습체불사업주, 중대재해 명단공표 기업, 고용보험료 체납기업</small></p>
+  <p><small>호텔업과 휴양콘도 운영업은 <b>가능</b>합니다.</small></p>
+
+  <div class="box">
+    <div class="t">문의</div>
+    <p>고용노동부 <b style="font-size:11.5pt">1350</b><br>고용24 work24.go.kr</p>
+  </div>
+</section>
+
+<!-- 08 -->
+<section class="sec">
+  <div class="sh"><div class="n">0 8</div><h2>지금<br>열려 있는 것</h2>
+  <div class="d">2026년 9월 20일 기준입니다. 예산이 소진되면 마감일 전에도 끝납니다.</div></div>
+
+  <div class="box g">
+    <div class="t">가장 쉬운 것</div>
+    <p style="margin-bottom:1mm"><b style="font-size:13pt">소상공인 경영안정 바우처</b></p>
+    <div class="kv" style="margin-bottom:2mm">
+      <div><b>금액</b><span><b>25만원</b> · 자부담 없음</span></div>
+      <div><b>대상</b><span>연매출 <b>1억 400만원 미만</b> 소상공인</span></div>
+      <div><b>서류</b><span><b>없음</b> · 자동 심사</span></div>
+      <div><b>마감</b><span>12월 18일 <small>공고문에 &lsquo;잠정&rsquo;으로 적혀 있어 예산 소진 시 조기 마감</small></span></div>
+    </div>
+    <p>전기요금이나 4대보험료를 낼 때 카드에서 차감되는 방식입니다. 문의 <b>1533-0600</b>.</p>
+  </div>
+
+  <div class="kv">
+    <div><b>희망리턴패키지<br>점포철거비</b><span>최대 <b>600만원</b> · 상시<br><small style="color:#C41230">반드시 철거 전에 신청하십시오</small></span></div>
+    <div><b>전직장려수당</b><span>최대 100만원 · 상시</span></div>
+    <div><b>새출발기금<br>채무조정</b><span>순부채의 60~80% 감면<br>취약계층 최대 90% · 상시</span></div>
+  </div>
+
+  <div class="box y">
+    <div class="t">내년을 위해 지금 할 것</div>
+    <p>큰 창업지원사업은 2~5월에 이미 마감됐습니다. 대부분 <b>1월에 공고가 나므로</b> 가을에 준비하는 게 맞습니다.</p>
+    <p>거의 모든 사업이 <b>세금 체납과 연체</b>를 지원제외 사유로 둡니다. 있다면 지금 해소해 두십시오.</p>
+  </div>
+</section>
+
+<!-- 09 -->
+<section class="sec">
+  <div class="sh"><div class="n">0 9</div><h2>사업자가<br>아니라면</h2>
+  <div class="d">근로자와 구직자, 그리고 사업자의 가족이 쓸 수 있는 제도입니다.</div></div>
+
+  <h3>햇살론 — 2026년에 바뀌었습니다</h3>
+  <p>기존 4종(근로자햇살론·햇살론뱅크·햇살론15·최저신용자 특례보증)이 <b>2종으로 통합</b>됐습니다. 예전 상품명으로 찾으시면 안 됩니다.</p>
+  <div class="kv">
+    <div><b>햇살론일반</b><span>근로자햇살론 + 햇살론뱅크</span></div>
+    <div><b>햇살론특례</b><span>햇살론15 + 최저신용자 특례보증</span></div>
+  </div>
+  <div class="box g">
+    <div class="t">보증료를 깎는 요건</div>
+    <p>한부모·다문화·북한이탈주민·등록장애인·기초수급자·차상위계층·근로장려금 수급자 등은 <b>사회적배려대상자</b>로 보증료가 내려갑니다.</p>
+    <p>금융교육 이수나 복지멤버십 가입으로도 추가 인하가 됩니다. 다만 <b>약정 후에는 소급되지 않으니 신청 전에</b> 끝내셔야 합니다.</p>
+    <p>문의 서민금융진흥원 <b>1397</b>.</p>
+  </div>
+
+  <h3>빚이 부담되신다면</h3>
+  <div class="box y">
+    <div class="t">연체 전에도 신청할 수 있습니다</div>
+    <p><b>신속채무조정</b>은 연체가 없어도 신용평점 하위 20%이면서 연소득 4,500만원 이하이거나, 만 34세 이하면 신청 가능합니다.</p>
+    <p>그리고 <b>신속채무조정과 사전채무조정은 공공정보에 등재되지 않습니다.</b> 신용기록을 남기지 않고 손쓸 수 있는 구간이 여기까지입니다.</p>
+    <p>신용회복위원회 <b>1600-5500</b>.</p>
+  </div>
+  <div class="kv">
+    <div><b>새도약기금</b><span>연체 7년 이상(2018.6.19 이전 발생) + 금융회사별 원금 5,000만원 이하<br><small>기금이 채권을 매입해 소각하거나 조정합니다. 별도 신청 없이 진행되며 문의는 1660-0705</small></span></div>
+  </div>
+
+  <h3>근로장려금 — 가구 유형을 확인하십시오</h3>
+  <div class="box">
+    <p>금액을 절반 넘게 가르는 것이 가구 유형입니다. <b>이혼하셨더라도 70세 이상 부모를 부양</b>(연 소득금액 100만원 이하 + 주민등록상 동거)하면 <b>홑벌이가구</b>가 됩니다.</p>
+    <p>단독가구 한도 165만원이 <b>홑벌이 285만원</b>으로 올라가는데, 단독으로 신고해 놓고 지나치는 경우가 많습니다.</p>
+    <p>재산 요건에서 <b>부채는 차감되지 않습니다.</b> 문의 국세청 <b>1566-3636</b>.</p>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="sec">
+  <div class="sh"><div class="n">1 0</div><h2>이런 전화를<br>받으시면</h2>
+  <div class="d">정책자금을 알아보기 시작하면 연락이 옵니다. 응했을 때 손해를 보는 쪽은 업체가 아니라 신청한 기업입니다.</div></div>
+
+  <div class="box r">
+    <div class="t">공고문에 이렇게 적혀 있습니다</div>
+    <p>&ldquo;최근 3년 이내 정책자금 <b>제3자 부당 개입</b> 등 허위·부정한 방법으로 융자 신청&rdquo;한 기업은 <b>융자 신청이 제한된다.</b></p>
+    <p>업체가 대신 써준 서류에 사실과 다른 내용이 있어도 <b>책임은 신청인에게</b> 돌아옵니다. 3년간 정책자금을 못 받습니다.</p>
+    <p class="src" style="margin-bottom:2mm"><span class="flag">원문</span>중진공 공고 제2026-464호 p11 유의사항 ⑥항.</p>
+  </div>
+
+  <h3>의심하셔야 할 말</h3>
+  <ul class="no">
+    <li>&ldquo;제가 다 해드리면 됩니다&rdquo;<br><small>심사는 기관 권한이라 누구도 대신 통과시킬 수 없습니다</small></li>
+    <li>&ldquo;무조건 나옵니다 / 100% 됩니다&rdquo;<br><small>보장 자체가 불가능합니다</small></li>
+    <li>&ldquo;착수금을 먼저 넣으셔야 합니다&rdquo;<br><small>명칭과 무관하게 대부업법 위반입니다. 신청은 무료입니다</small></li>
+    <li>&ldquo;보험에 가입하시면 컨설팅해 드립니다&rdquo;<br><small>보험업법 §98 특별이익 제공. <b>응한 사업주도 처벌 대상</b>입니다</small></li>
+    <li>&ldquo;보험 가입이 대출 조건입니다&rdquo;<br><small>사실이 아닙니다. 금융소비자보호법 위반입니다</small></li>
+    <li>&ldquo;매출을 조금 올려서 씁시다&rdquo;<br><small>적발되면 자금 회수와 3년 신청 제한이 기업에 떨어집니다</small></li>
+    <li>&ldquo;○○정책자금지원센터입니다&rdquo;<br><small>기관 명칭이나 비슷한 이름을 쓰는 사설 업체입니다</small></li>
+  </ul>
+
+  <div class="box y">
+    <div class="t">이 한 줄이면 정리됩니다</div>
+    <p>&ldquo;신청은 제가 기관에 직접 하겠습니다. 대가가 오가면 저도 처벌 대상이고 <b>3년간 자금을 못 받는다</b>고 들었습니다.&rdquo;</p>
+  </div>
+
+  <div class="box g">
+    <div class="t">기관이 내린 정의</div>
+    <p>제3자 부당개입이란 &ldquo;<b>정책자금 신청업체에 재직하지 아니하면서</b> 정책자금 신청 및 대출과정에 있어 중소기업의 피해를 유발하고 정책목적을 훼손하는 행위&rdquo;입니다.</p>
+    <p>기관이 겨냥한 것은 <b>대가를 받고 끼어드는 외부인</b>입니다. 제도를 알아보는 일 자체는 여기 들어가지 않습니다.</p>
+    <p class="src" style="margin-bottom:2mm"><span class="flag">원문</span>중진공 불법 브로커 신고센터.</p>
+  </div>
+
+  <h3>신고는 여기로</h3>
+  <p>정식 접수는 전화가 아니라 <b>각 기관 누리집의 온라인 신고센터</b>입니다.</p>
+  <div class="kv">
+    <div><b>중진공</b><span>kosmes.or.kr<br><small>불법 브로커 신고센터 · 익명 신고 가능</small></span></div>
+    <div><b>소진공</b><span>ols.semas.or.kr<br><small>소상공인 정책자금 불법 브로커 신고센터</small></span></div>
+    <div><b>불법사금융</b><span><b>1332 → 3번</b><br><small>고금리·불법 중개수수료 피해</small></span></div>
+  </div>
+  <p><b>포상금은 최대 200만원</b>입니다. 이미 응하셨더라도 <b>자진신고자 면책제도</b>가 있어, 적극 가담한 경우가 아니면 대출금 회수나 신규 지원 제한을 면제받을 수 있습니다.</p>
+  <p class="src">면책은 법률이 아니라 정부 정책과 기관 내규에 따른 제도입니다.</p>
+</section>
+
+<!-- 11 -->
+<section class="sec">
+  <div class="sh"><div class="n">1 1</div><h2>전화번호</h2>
+  <div class="d">모두 무료 상담입니다. 저장해 두십시오.</div></div>
+
+  <h3>사업자</h3>
+  <div class="tel">
+    <div><span class="o">소상공인 통합콜센터<em>내선 1번 · 정책자금</em></span><span class="n">1533-0100</span></div>
+    <div><span class="o">중소기업 통합콜센터<em>전 부처 지원사업</em></span><span class="n">1357</span></div>
+    <div><span class="o">중진공<em>정책자금 전담</em></span><span class="n">1811-3655</span></div>
+    <div><span class="o">경영안정 바우처<em>25만원 전용</em></span><span class="n">1533-0600</span></div>
+    <div><span class="o">신용보증기금</span><span class="n">1588-6565</span></div>
+    <div><span class="o">기술보증기금</span><span class="n">1544-1120</span></div>
+    <div><span class="o">신용보증재단중앙회<em>관할 재단 연결</em></span><span class="n">1588-7365</span></div>
+  </div>
+
+  <h3>개인</h3>
+  <div class="tel">
+    <div><span class="o">서민금융진흥원<em>햇살론</em></span><span class="n">1397</span></div>
+    <div><span class="o">신용회복위원회<em>채무조정</em></span><span class="n">1600-5500</span></div>
+    <div><span class="o">새도약기금<em>연체 7년 이상</em></span><span class="n">1660-0705</span></div>
+    <div><span class="o">고용노동부<em>고용 지원금</em></span><span class="n">1350</span></div>
+    <div><span class="o">국세청<em>근로·자녀장려금</em></span><span class="n">1566-3636</span></div>
+    <div><span class="o">국토교통부<em>주택도시기금</em></span><span class="n">1599-0001</span></div>
+    <div><span class="o">금융감독원<em>불법사금융은 3번</em></span><span class="n">1332</span></div>
+    <div><span class="o">보건복지상담센터<em>긴급복지 · 24시간</em></span><span class="n">129</span></div>
+  </div>
+
+  <h3>누리집</h3>
+  <div class="kv">
+    <div><b>공고 모음</b><span>bizinfo.go.kr</span></div>
+    <div><b>소상공인 신청</b><span>ols.semas.or.kr</span></div>
+    <div><b>중진공</b><span>kosmes.or.kr</span></div>
+    <div><b>창업지원</b><span>k-startup.go.kr</span></div>
+    <div><b>고용지원금</b><span>work24.go.kr</span></div>
+  </div>
+</section>
+
+<footer>
+  <div class="fb">정책자금 핵심정리</div>
+  <div class="fs">2026년 9월 20일 기준<br><br>
+  수치는 기준일 현재의 공고문에서 옮긴 것입니다.<br>
+  정책자금은 예산이 소진되면 연중 언제든 마감되고<br>
+  금리는 분기마다 바뀝니다.<br><br>
+  <b>신청 전에 위 번호로 확인하십시오.</b></div>
+</footer>
+
+</body></html>
